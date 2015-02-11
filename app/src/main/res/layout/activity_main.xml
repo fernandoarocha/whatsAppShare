@@ -1,0 +1,101 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:gravity="center|bottom"
+    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity"
+    >
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/relativeButtonRed"
+        android:layout_marginBottom="10dp">
+        <ImageView
+            android:layout_width="@dimen/buttonWidth"
+            android:layout_height="@dimen/buttonHeight"
+            android:id="@+id/buttonChega"
+            android:background="@drawable/red"
+            android:layout_centerHorizontal="true"/>
+        <ImageView
+            android:layout_width="@dimen/shareWidth"
+            android:layout_height="@dimen/shareHeigth"
+            android:id="@+id/button"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/buttonChega"
+            android:background="@drawable/logo" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/relativeButtonYellow"
+        android:layout_toRightOf="@+id/relativeButtonRed"
+        android:layout_marginBottom="10dp">
+        <ImageView
+            android:layout_width="@dimen/buttonWidth"
+            android:layout_height="@dimen/buttonHeight"
+            android:id="@+id/buttonThree"
+            android:background="@drawable/yellow"
+            android:layout_centerHorizontal="true"/>
+
+        <ImageView
+            android:layout_width="@dimen/shareWidth"
+            android:layout_height="@dimen/shareHeigth"
+            android:id="@+id/button2"
+            android:background="@drawable/logo"
+            android:layout_below="@+id/buttonThree"
+            android:layout_centerHorizontal="true"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/relativeButtonGreen"
+        android:layout_below="@+id/relativeButtonRed">
+
+        <ImageView
+            android:layout_width="@dimen/buttonWidth"
+            android:layout_height="@dimen/buttonHeight"
+            android:id="@+id/buttonFour"
+            android:background="@drawable/green_btn"
+            android:layout_centerHorizontal="true"/>
+
+        <ImageView
+            android:layout_width="@dimen/shareWidth"
+            android:layout_height="@dimen/shareHeigth"
+            android:layout_below="@id/buttonFour"
+            android:id="@+id/buttonTwo"
+            android:background="@drawable/logo"
+            android:layout_centerHorizontal="true"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/relativeButtonBlue"
+            android:layout_below="@+id/relativeButtonYellow"
+            android:layout_toRightOf="@+id/relativeButtonGreen">
+            <ImageView
+                android:layout_width="@dimen/buttonWidth"
+                android:layout_height="@dimen/buttonHeight"
+                android:id="@+id/button3"
+                android:background="@drawable/blue"
+                android:layout_centerHorizontal="true"/>
+
+
+            <ImageView
+                android:layout_width="@dimen/shareWidth"
+                android:layout_height="@dimen/shareHeigth"
+                android:id="@+id/button4"
+                android:background="@drawable/logo"
+                android:layout_below="@+id/button3"
+                android:layout_centerHorizontal="true"/>
+
+        </RelativeLayout>
+
+
+
+</RelativeLayout>
