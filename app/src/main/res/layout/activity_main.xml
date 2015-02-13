@@ -1,23 +1,32 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:layout_height="match_parent"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:gravity="center|bottom"
-    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity"
-
+    android:background="@drawable/bg"
     >
-
+<RelativeLayout
+    android:layout_centerHorizontal="true"
+    android:gravity="center"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/relativeMainLayout"
+    android:paddingRight="2dp"
+    android:layout_marginBottom="20dp"
+    >
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/relativeButtonRed"
-        android:layout_marginBottom="10dp">
+        android:padding="2dp">
         <ImageView
+            android:scaleType="fitXY"
             android:layout_width="@dimen/buttonWidth"
             android:layout_height="@dimen/buttonHeight"
             android:id="@+id/buttonChega"
-            android:background="@drawable/red"
+            android:background="@drawable/bt_vermelho"
+            android:layout_marginBottom="5dp"
+            android:layout_marginRight="2dp"
             android:layout_centerHorizontal="true"/>
         <ImageView
             android:layout_width="@dimen/shareWidth"
@@ -25,7 +34,7 @@
             android:id="@+id/buttonShareOne"
             android:layout_centerHorizontal="true"
             android:layout_below="@+id/buttonChega"
-            android:background="@drawable/logo" />
+            android:background="@drawable/share" />
     </RelativeLayout>
 
     <RelativeLayout
@@ -33,19 +42,22 @@
         android:layout_height="wrap_content"
         android:id="@+id/relativeButtonYellow"
         android:layout_toRightOf="@+id/relativeButtonRed"
-        android:layout_marginBottom="10dp">
+        android:padding="2dp">
         <ImageView
+            android:scaleType="fitXY"
             android:layout_width="@dimen/buttonWidth"
             android:layout_height="@dimen/buttonHeight"
             android:id="@+id/buttonTwo"
-            android:background="@drawable/yellow"
+            android:background="@drawable/bt_amarelo"
+            android:layout_marginRight="2dp"
+            android:layout_marginBottom="5dp"
             android:layout_centerHorizontal="true"/>
 
         <ImageView
             android:layout_width="@dimen/shareWidth"
             android:layout_height="@dimen/shareHeigth"
             android:id="@+id/buttonShareTwo"
-            android:background="@drawable/logo"
+            android:background="@drawable/share"
             android:layout_below="@+id/buttonTwo"
             android:layout_centerHorizontal="true"/>
     </RelativeLayout>
@@ -54,13 +66,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/relativeButtonGreen"
-        android:layout_below="@+id/relativeButtonRed">
+        android:layout_toRightOf="@+id/relativeButtonYellow"
+        android:padding="2dp">
 
         <ImageView
+            android:scaleType="fitXY"
             android:layout_width="@dimen/buttonWidth"
             android:layout_height="@dimen/buttonHeight"
             android:id="@+id/buttonThree"
-            android:background="@drawable/green_btn"
+            android:layout_marginBottom="5dp"
+            android:layout_marginRight="2dp"
+            android:background="@drawable/bt_verde"
             android:layout_centerHorizontal="true"/>
 
         <ImageView
@@ -68,7 +84,7 @@
             android:layout_height="@dimen/shareHeigth"
             android:layout_below="@id/buttonThree"
             android:id="@+id/buttonShareThree"
-            android:background="@drawable/logo"
+            android:background="@drawable/share"
             android:layout_centerHorizontal="true"/>
 
         </RelativeLayout>
@@ -77,13 +93,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/relativeButtonBlue"
-            android:layout_below="@+id/relativeButtonYellow"
-            android:layout_toRightOf="@+id/relativeButtonGreen">
+            android:layout_toRightOf="@+id/relativeButtonGreen"
+            android:padding="2dp">
             <ImageView
+                android:scaleType="fitXY"
                 android:layout_width="@dimen/buttonWidth"
                 android:layout_height="@dimen/buttonHeight"
                 android:id="@+id/buttonFour"
-                android:background="@drawable/blue"
+                android:background="@drawable/bt_azul"
+                android:layout_marginBottom="5dp"
+                android:layout_marginRight="2dp"
                 android:layout_centerHorizontal="true"/>
 
 
@@ -91,12 +110,19 @@
                 android:layout_width="@dimen/shareWidth"
                 android:layout_height="@dimen/shareHeigth"
                 android:id="@+id/buttonShareFour"
-                android:background="@drawable/logo"
+                android:background="@drawable/share"
                 android:layout_below="@+id/buttonFour"
                 android:layout_centerHorizontal="true"/>
 
         </RelativeLayout>
-
+    </RelativeLayout>
+        <fragment
+            android:id="@+id/adFragment"
+            android:name="what.fernandorocha.br.com.what.fragment.AdMobFragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/relativeMainLayout"
+            tools:layout="@layout/fragment_admob" />
 
 
 </RelativeLayout>
