@@ -1,24 +1,26 @@
 package what.fernandorocha.br.com.what.activity;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.ShareCompat;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 
 import what.fernandorocha.br.com.what.R;
-
 import what.fernandorocha.br.com.what.provider.AssetProvider;
 
 
-public class MainActivity extends Activity implements View.OnClickListener {
+public class MainActivity extends ActionBarActivity implements View.OnClickListener {
     private MediaPlayer mp;
     private MusicShare musicShare;
+    private ActionBar actionBar;
+    private Intent shareIntent;
 
 
     @Override
@@ -55,6 +57,13 @@ public class MainActivity extends Activity implements View.OnClickListener {
         ImageView shareFour = (ImageView)this.findViewById(R.id.buttonShareFour);
         shareFour.setOnClickListener(this);
 
+        actionBar = getSupportActionBar();
+        actionBar.setDisplayShowHomeEnabled(true);
+        actionBar.setDisplayShowTitleEnabled(true);
+        actionBar.setIcon(R.drawable.ic_launcher);
+
+
+
     }
 
     /**
@@ -68,13 +77,10 @@ public class MainActivity extends Activity implements View.OnClickListener {
         }
     }
 
-
-
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
+        getMenuInflater().inflate(R.menu.menu, menu);
         return true;
     }
 
@@ -86,12 +92,18 @@ public class MainActivity extends Activity implements View.OnClickListener {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        if (id == R.id.action_share) {
+            Intent share = new Intent();
+            share.setAction(Intent.ACTION_SEND);
+            share.putExtra(Intent.EXTRA_TEXT, R.string.text_share+" \n"+R.string.link_share);
+            share.setType("text/plain");
+            startActivity(Intent.createChooser(share, getResources().getText(R.string.send_to)));
         }
 
         return super.onOptionsItemSelected(item);
     }
+
+
 
     @Override
     public void onClick(View v) {
@@ -118,10 +130,10 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 break;
             case R.id.buttonShareOne:
                 musicShare = new MusicShare("120429.mp3");
-                Intent shareIntent = ShareCompat.IntentBuilder.from(MainActivity.this)
+                shareIntent = ShareCompat.IntentBuilder.from(MainActivity.this)
                         .setType("audio/*")
                         .setStream(musicShare.mImageUri)
-                        .setChooserTitle("Compartilhar Áudio com")
+                        .setChooserTitle(R.string.send_to)
                         .createChooserIntent();
                 startActivity(shareIntent);
                 break;
@@ -130,7 +142,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 shareIntent = ShareCompat.IntentBuilder.from(MainActivity.this)
                         .setType("audio/*")
                         .setStream(musicShare.mImageUri)
-                        .setChooserTitle("Compartilhar Áudio com")
+                        .setChooserTitle(R.string.send_to)
                         .createChooserIntent();
                 startActivity(shareIntent);
                 break;
@@ -139,7 +151,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 shareIntent = ShareCompat.IntentBuilder.from(MainActivity.this)
                         .setType("audio/*")
                         .setStream(musicShare.mImageUri)
-                        .setChooserTitle("Compartilhar Áudio com")
+                        .setChooserTitle(R.string.send_to)
                         .createChooserIntent();
                 startActivity(shareIntent);
                 break;
@@ -148,7 +160,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 shareIntent = ShareCompat.IntentBuilder.from(MainActivity.this)
                         .setType("audio/*")
                         .setStream(musicShare.mImageUri)
-                        .setChooserTitle("Compartilhar Áudio com")
+                        .setChooserTitle(R.string.send_to)
                         .createChooserIntent();
                 startActivity(shareIntent);
                 break;
@@ -160,8 +172,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
     private static class MusicShare{
         private final Uri mImageUri;
 
-        private MusicShare(String shareImg){
-            mImageUri = Uri.parse("content://"+ AssetProvider.CONTENT_URI +"/"+ shareImg);
+        private MusicShare(String shareMusic){
+            mImageUri = Uri.parse("content://"+ AssetProvider.CONTENT_URI +"/"+ shareMusic);
         }
     }
 }

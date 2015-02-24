@@ -7,4 +7,8 @@
     <string name="textApresentation">Pressione os butões</string>
     <string name="enviarMsg">Enviar via Whats app</string>
     <string name="banner_ad_unit_id">ca-app-pub-4046108001510938/2821036602</string>
+    <string name="action_share">Compartilhamento</string>
+    <string name="text_share" >Baixe esse app de bordões para seu celular</string>
+    <string name="link_share">http://play.store.google.com/what</string>
+    <string name="send_to">Compartilhe com...</string>
 </resources>

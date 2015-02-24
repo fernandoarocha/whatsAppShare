@@ -33,6 +33,9 @@ public class AdMobFragment extends Fragment {
         AdRequest adRequest = new AdRequest.Builder()
                 .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
                 .addTestDevice("42904A2FF65563EC25C39BBEF2C47A0C")
+                .addTestDevice("276EBD3AE52B02154A74717FC46DE6F6")
+                .addTestDevice("A8DF6B728CF0D2CA87485C371E2ADD68")
+                .addTestDevice("517EA1607A34727FB7971D34AFBA7292")
                 .build();
         mAdView.loadAd(adRequest);
     }
